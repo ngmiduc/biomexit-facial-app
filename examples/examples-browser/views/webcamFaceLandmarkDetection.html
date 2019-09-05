@@ -32,7 +32,7 @@
     <div class="progress" id="loader">
       <div class="indeterminate"></div>
     </div>
-    <div style="position: relative" class="margin">
+    <div style="position: relative" class="margin" id="minh">
       <video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted></video>
       <canvas id="overlay" />
       <canvas id="overlay2" width="300" height="300" style="display:none;"></canvas>
@@ -304,7 +304,7 @@ console.log("STAMP ID is ", stamp);
       // load face detection and face landmark models
       await changeFaceDetector(TINY_FACE_DETECTOR)
       await faceapi.loadFaceLandmarkModel('/')
-      changeInputSize(224)
+      changeInputSize(608)
 
       // try to access users webcam and stream the images
       // to the video element
