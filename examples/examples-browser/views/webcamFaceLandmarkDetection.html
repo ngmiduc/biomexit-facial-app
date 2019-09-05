@@ -263,9 +263,10 @@
           var image = new Image();
           image.src = blob;
           const stamp = new Date().getUTCMilliseconds();
-          var uploadTask = storageRef.child('faces/'+ stamp + ".jpg").put(blob).then((snapshot) => {
+          var uploadTask = storageRef.child('faces/'+ stamp).put(blob).then((snapshot) => {
             snapshot.ref.getDownloadURL().then(function(downloadURL) {
     console.log("File available at", downloadURL);
+console.log("STAMP ID is ", stamp);
 
     db.collection("faces").add({
     url: downloadURL,
