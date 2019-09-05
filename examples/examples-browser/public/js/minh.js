@@ -81,19 +81,26 @@ async function onPlay() {
         }
         faceapi.draw.drawFaceLandmarks(can, resizedResult)
 
-        console.log("get result image")
+        console.log("TRACKING IMAGE / UPLOAD TO DATABASE")
 
         can.toBlob(function(blob) {
           var image = new Image()
           image.src = blob
           const stamp = new Date().getUTCMilliseconds()
+          const t = new Date().getUTCMilliseconds()
+          const ID =
+            t +
+            Math.random()
+              .toString(36)
+              .substr(2, 9)
+
           var uploadTask = storageRef
-            .child("faces/" + stamp + ".jpg")
+            .child("faces/" + ID + ".jpg")
             .put(blob)
             .then(snapshot => {
               snapshot.ref.getDownloadURL().then(function(downloadURL) {
                 console.log("File available at", downloadURL)
-                console.log("STAMP ID is ", stamp)
+                console.log("STAMP ID is ", ID)
 
                 let ana = [
                   "REAT LEVEL LOW",
