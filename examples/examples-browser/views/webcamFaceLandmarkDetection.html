@@ -35,7 +35,6 @@
     <div style="position: relative" class="margin" id="minh">
       <video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted></video>
       <canvas id="overlay" />
-      <canvas id="overlay2" width="300" height="300" style="display:none;"></canvas>
     </div>
 
     <div class="row side-by-side">
@@ -204,6 +203,16 @@
         const canvas = $('#overlay').get(0)
         const dims = faceapi.matchDimensions(canvas, videoEl, true)
         const resizedResult = faceapi.resizeResults(result, dims)
+
+// if (resizedResult.detection.score < 0.95) {
+//   var c = document.getElementById("overlay");
+// var ctx = c.getContext("2d");
+// ctx.fillStyle = "red";
+// ctx.fillRect(0, 0, 1980, 1020);
+// ctx.clearRect(0, 0, 1980, 1020);
+//
+// }
+
 
         if (withBoxes) {
           faceapi.draw.drawDetections(canvas, resizedResult)
