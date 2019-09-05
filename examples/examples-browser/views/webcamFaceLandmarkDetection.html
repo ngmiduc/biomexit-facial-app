@@ -262,7 +262,8 @@
           can.toBlob(function(blob){
           var image = new Image();
           image.src = blob;
-          var uploadTask = storageRef.child('faces').put(blob).then((snapshot) => {
+          const stamp = new Date().getUTCMilliseconds();
+          var uploadTask = storageRef.child('faces/'+ stamp + ".jpg").put(blob).then((snapshot) => {
             snapshot.ref.getDownloadURL().then(function(downloadURL) {
     console.log("File available at", downloadURL);
 
