@@ -84,8 +84,6 @@ async function onPlay() {
         console.log("TRACKING IMAGE / UPLOAD TO DATABASE")
 
         can.toBlob(function(blob) {
-          var image = new Image()
-          image.src = blob
           const stamp = new Date().getUTCMilliseconds()
           const t = new Date().getUTCMilliseconds()
           const ID =
