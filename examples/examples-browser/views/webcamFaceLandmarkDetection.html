@@ -161,6 +161,7 @@
 
 
   <script>
+  let BUSY = false
     let forwardTimes = []
     let withBoxes = true
 
@@ -211,6 +212,9 @@
 
 
         if (counter % 100 == 0){
+
+          if(!BUSY){
+            BUSY = true
 
           function capture(video, scaleFactor) {
               if(scaleFactor == null){
@@ -285,10 +289,13 @@ console.log("STAMP ID is ", stamp);
           });
 
 
-
+          BUSY = false
       }
 
       }
+    }else {
+      console.log("BUSY APP ... skip");
+    }
 
       setTimeout(() => onPlay())
     }
