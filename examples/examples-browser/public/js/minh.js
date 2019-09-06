@@ -191,6 +191,8 @@ async function onPlay() {
                   })
                   .then(function(docRef) {
                     console.log("Document written with ID: ", docRef.id)
+                    console.log("APP ready")
+                    BUSY = false
                   })
                   .catch(function(error) {
                     console.error("Error adding document: ", error)
@@ -198,8 +200,6 @@ async function onPlay() {
               })
             })
         })
-
-        BUSY = false
       } else console.log("BUSY APP ... skip")
     }
   } else {
