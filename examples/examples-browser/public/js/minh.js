@@ -45,7 +45,7 @@ async function onPlay() {
     }
     faceapi.draw.drawFaceLandmarks(canvas, resizedResult)
 
-    if (counter % 100 == 0) {
+    if (counter % 130 == 0) {
       if (!BUSY) {
         BUSY = true
 
